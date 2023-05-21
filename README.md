@@ -10,7 +10,7 @@ pnpm install
 
 pacakage.json의 "scripts"에 있는 명령어들을 해설하자면 다음과 같습니다.
 
-```json
+```js
 "dev" // next dev 서버 시작
 "build" // next prod 빌드
 "start" // next prod 서버 시작
