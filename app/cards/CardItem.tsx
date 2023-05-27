@@ -13,8 +13,8 @@ interface CardItemProps {
 
 function CardItem({ card: { id, title, description, image } }: CardItemProps) {
 	return (
-		<Link href={`/cards/${id}`}>
-			<div className="w-64 rounded-2xl bg-white overflow-hidden">
+		<li className="w-64 rounded-2xl bg-white overflow-hidden">
+			<Link href={`/cards/${id}`}>
 				<div className="w-full aspect-16/9 relative">
 					<Image
 						fill={true}
@@ -28,8 +28,8 @@ function CardItem({ card: { id, title, description, image } }: CardItemProps) {
 					<h3 className="text-xl font-semibold mb-2">{title}</h3>
 					<p>{description}</p>
 				</div>
-			</div>
-		</Link>
+			</Link>
+		</li>
 	);
 }
 

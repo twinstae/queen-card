@@ -25,11 +25,11 @@ async function getCardList() {
 async function CardListPage() {
 	const cardList = await getCardList();
 	return (
-		<div className="flex gap-2">
+		<ul className="flex gap-2">
 			{cardList.map((card) => (
 				<CardItem key={card.id} card={card} />
 			))}
-		</div>
+		</ul>
 	);
 }
 
