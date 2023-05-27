@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/image";
 import React from "react";
 
 interface CardItemProps {
@@ -12,7 +12,7 @@ interface CardItemProps {
 function CardItem({ card: { title, description, image } }: CardItemProps) {
 	return (
 		<div className="w-64 rounded-2xl bg-white overflow-hidden">
-			<div className='w-full aspect-16/9 relative'>
+			<div className="w-full aspect-16/9 relative">
 				<Image
 					fill={true}
 					alt=""
