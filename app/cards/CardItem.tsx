@@ -1,17 +1,22 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 interface CardItemProps {
 	card: {
+		id: number;
 		title: string;
 		description: string;
 		image: string;
 	};
 }
 
-function CardItem({ card: { title, description, image } }: CardItemProps) {
+function CardItem({ card: { id, title, description, image } }: CardItemProps) {
 	return (
-		<div className="w-64 rounded-2xl bg-white overflow-hidden">
+		<Link
+			href={`/cards/${id}`}
+			className="w-64 rounded-2xl bg-white overflow-hidden"
+		>
 			<div className="w-full aspect-16/9 relative">
 				<Image
 					fill={true}
@@ -25,7 +30,7 @@ function CardItem({ card: { title, description, image } }: CardItemProps) {
 				<h3 className="text-xl font-semibold mb-2">{title}</h3>
 				<p>{description}</p>
 			</div>
-		</div>
+		</Link>
 	);
 }
 

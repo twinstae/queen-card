@@ -1,10 +1,10 @@
 import CardItem from "./CardItem";
 
 // 스토리북
-
 export default (
 	<CardItem
 		card={{
+			id: 1,
 			title: "15분씩 일주일 시작하기",
 			description:
 				"처음 마음 돌보기를 시작해보면서 작은 운동, 수면, 마음챙김, 감사일기, 회고 등을 시도해봅니다.",

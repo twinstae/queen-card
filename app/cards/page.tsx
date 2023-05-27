@@ -1,5 +1,5 @@
 import React from "react";
-import CardItem from './CardItem';
+import CardItem from "./CardItem";
 
 async function getCardList() {
 	return [
@@ -24,7 +24,13 @@ async function getCardList() {
 
 async function CardListPage() {
 	const cardList = await getCardList();
-	return <div className="flex gap-2">{cardList.map(card => (<CardItem key={card.id} card={card} />))}</div>;
+	return (
+		<div className="flex gap-2">
+			{cardList.map((card) => (
+				<CardItem key={card.id} card={card} />
+			))}
+		</div>
+	);
 }
 
 export default CardListPage;
