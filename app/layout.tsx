@@ -1,12 +1,10 @@
+"use client";
+
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Suspense } from 'react';
 
-const inter = Inter({ subsets: ["latin"] });
-
-export const metadata = {
-	title: "마음 돌보기 카드",
-	description: "매일 탄력적으로 마음을 돌보자",
-};
+const queryClient = new QueryClient();
 
 export default function RootLayout({
 	children,
@@ -15,8 +13,14 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="ko">
-			<body className={inter.className}>
-				<div className="bg-gray-900 h-screen p-4">{children}</div>
+			<body>
+				<div className="h-screen p-4">
+					<QueryClientProvider client={queryClient}>
+						<Suspense fallback={<div>로딩</div>}>
+							{children}
+						</Suspense>
+					</QueryClientProvider>
+				</div>
 			</body>
 		</html>
 	);

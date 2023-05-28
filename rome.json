@@ -1,20 +1,25 @@
 {
-	"$schema": "https://docs.rome.tools/schemas/12.1.2/schema.json",
+	"$schema": "https://docs.rome.tools/schemas/12.1.0/schema.json",
 	"organizeImports": {
 		"enabled": false
 	},
 	"formatter": {
-    "enabled": true,
-    "formatWithErrors": false,
-    "indentStyle": "tab",
-    "indentSize": 2,
-    "lineWidth": 80,
-    "ignore": []
-  },
+		"enabled": true,
+		"formatWithErrors": false,
+		"indentStyle": "tab",
+		"indentSize": 2,
+		"lineWidth": 80,
+		"ignore": []
+	},
 	"linter": {
 		"enabled": true,
 		"rules": {
 			"recommended": true
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"semicolons": "always"
 		}
 	}
 }
