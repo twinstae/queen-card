@@ -1,10 +1,20 @@
 "use client";
 import React from "react";
-import { useQuery } from "@tanstack/react-query";
 
 import CardItem from "./CardItem";
 import type { CardT } from "./types";
-import { getCardList } from "./api";
+import { useQuery } from '@tanstack/react-query';
+import { getCardList } from './api';
+
+// pages router
+// getServerSideProps, getStaticProps <- 여기, 페이지 맨 위에서만 데이터를 불러올 수 있었다
+// client component
+// 서버에서 모든 페이지를 그림!
+// 클라이언트에서 페이지 전체를 하이드레이션 함!
+
+// app router
+// server 서버에서만 데이터 가져와서 서버에서만 그림 <- 서버에 있는 데이터만으로 다 그릴 수 있는 거~
+// client 옛날처럼 서버에서 그리고, 클라이언트에서 하이드레이션 <- 브라우저나 사용자에게만 있는 데이터가 필요한 거
 
 function CardList({ cardList }: { cardList: CardT[] }) {
 	const { data } = useQuery({
@@ -13,9 +23,8 @@ function CardList({ cardList }: { cardList: CardT[] }) {
 		initialData: cardList,
 		suspense: true
 	});
-
 	return (
-		<ul className="grid grid-cols-1 sm:grid-cols-2 md:flex gap-2">
+		<ul className="flex gap-4">
 			{data.map((card) => (
 				<CardItem key={card.id} card={card} />
 			))}

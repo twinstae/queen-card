@@ -11,10 +11,10 @@ function CardItem({ card: { id, title, description, image } }: CardItemProps) {
 	return (
 		<div
 			role="listitem"
-			className="w-full md:w-64 rounded-2xl bg-white overflow-hidden shadow-lg ring-1 ring-gray-100"
+			className="w-64 rounded-md bg-base-100 shadow-lg hover:scale-105 transition-transform overflow-hidden"
 		>
-			<Link href={`/cards/${id}`}>
-				<div className="w-full aspect-16/9 relative">
+			<Link href={`/cards/${id}`} className="h-full flex flex-col">
+				<div className="w-full aspect-16/9 relative rounded-t-md">
 					<Image
 						fill={true}
 						alt=""
@@ -23,9 +23,12 @@ function CardItem({ card: { id, title, description, image } }: CardItemProps) {
 						src={image}
 					/>
 				</div>
-				<div className="p-4">
-					<h3 className="text-xl font-semibold mb-2">{title}</h3>
-					<p>{description}</p>
+				<div className="p-4 flex-grow bg-primary-content flex flex-col justify-between">
+					<div>
+						<h3 className="text-xl font-semibold mb-2">{title}</h3>
+						<p>{description}</p>
+					</div>
+					<span className="text-right mt-2 text-primary justify-self-end"> 시작하기 {'>'}</span>
 				</div>
 			</Link>
 		</div>
