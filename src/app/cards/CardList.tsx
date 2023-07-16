@@ -5,6 +5,8 @@ import CardItem from "./CardItem";
 import type { CardT } from "./types";
 import { useQuery } from '@tanstack/react-query';
 import { getCardList } from './api';
+import { HStack } from '@/styled-system/jsx';
+import { css } from '@/styled-system/css';
 
 // pages router
 // getServerSideProps, getStaticProps <- 여기, 페이지 맨 위에서만 데이터를 불러올 수 있었다
@@ -24,11 +26,11 @@ function CardList({ cardList }: { cardList: CardT[] }) {
 		suspense: true
 	});
 	return (
-		<ul className="flex gap-4">
+		<HStack className={css({ gap: 4})}>
 			{data.map((card) => (
 				<CardItem key={card.id} card={card} />
 			))}
-		</ul>
+		</HStack>
 	);
 }
 

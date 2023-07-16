@@ -2,7 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import type { CardT } from "./types";
-import * as panda from '@/styled-system/jsx';
+import { Box, VStack } from "@/styled-system/jsx";
+import { stack } from "@/styled-system/patterns";
+import { css } from "@/styled-system/css";
 
 interface CardItemProps {
 	card: CardT;
@@ -10,9 +12,8 @@ interface CardItemProps {
 
 function CardItem({ card: { id, title, description, image } }: CardItemProps) {
 	return (
-		<panda.Box
+		<Box
 			role="listitem"
-			// "w-64 rounded-md bg-base-100 shadow-lg hover:scale-105 transition-transform overflow-hidden"
 			width="64"
 			rounded="md"
 			bg="gray.100"
@@ -20,8 +21,13 @@ function CardItem({ card: { id, title, description, image } }: CardItemProps) {
 			transition="all"
 			overflow="hidden"
 		>
-			<Link href={`/cards/${id}`} className="h-full flex flex-col">
-				<div className="w-full aspect-16/9 relative rounded-t-md">
+			<Link href={`/cards/${id}`} className={stack({ height: "full", gap: 0 })}>
+				<Box
+					width="full"
+					aspectRatio="16/9"
+					position="relative"
+					roundedTop="md"
+				>
 					<Image
 						fill={true}
 						alt=""
@@ -29,19 +35,38 @@ function CardItem({ card: { id, title, description, image } }: CardItemProps) {
 						className="object-cover"
 						src={image}
 					/>
-				</div>
-				<div className="p-4 flex-grow bg-primary-content flex flex-col justify-between">
+				</Box>
+				<VStack
+					padding="4"
+					flexGrow="1"
+					backgroundColor="white"
+					justifyContent="space-between"
+				>
 					<div>
-						<h3 className="text-xl font-semibold mb-2">{title}</h3>
+						<h3
+							className={css({
+								fontSize: "xl",
+								fontWeight: "semibold",
+								mb: "2",
+							})}
+						>
+							{title}
+						</h3>
 						<p>{description}</p>
 					</div>
-					<span className="text-right mt-2 text-primary justify-self-end">
-						{" "}
+					<span
+						className={css({
+							width: "full",
+							textAlign: "right",
+							marginTop: "2",
+							color: "red.400",
+						})}
+					>
 						시작하기 {">"}
 					</span>
-				</div>
+				</VStack>
 			</Link>
-		</panda.Box>
+		</Box>
 	);
 }
 

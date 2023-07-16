@@ -9,7 +9,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="ko" data-theme='light'>
+		<html lang="ko">
 			<body>
 				<Providers>
 					<Suspense fallback={<div>로딩</div>}>
