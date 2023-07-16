@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useReducer } from "react";
-import useNow from '@/app/hooks/useNow';
+import useNow from '@/src/app/hooks/useNow';
 
 const TIMER_DURATION = 15 * 60;
 

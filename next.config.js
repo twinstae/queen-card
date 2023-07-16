@@ -1,10 +1,5 @@
-const {
-  createVanillaExtractPlugin
-} = require('@vanilla-extract/next-plugin');
-const withVanillaExtract = createVanillaExtractPlugin();
-
 /** @type {import('next').NextConfig} */
-const nextConfig = withVanillaExtract({
+const nextConfig = {
 	images: {
     remotePatterns: [
       {
@@ -15,6 +10,6 @@ const nextConfig = withVanillaExtract({
       },
     ],
   },
-})
+}
 
 module.exports = nextConfig;
